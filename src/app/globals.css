@@ -2,25 +2,56 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1A1A2E;
+  
+  /* Colores FisioAyuda */
+  --primary: #00A8E8;
+  --primary-dark: #0077B6;
+  --accent: #90E0EF;
+  --text-dark: #1A1A2E;
+  --text-light: #64748b;
+  --white: #FFFFFF;
+  --gray-light: #f8fafc;
+  --gray-medium: #e2e8f0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-text-dark: var(--text-dark);
+  --color-text-light: var(--text-light);
+  --color-gray-light: var(--gray-light);
+  --color-gray-medium: var(--gray-medium);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  }
+  
+  .gradient-light {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+  }
 }
